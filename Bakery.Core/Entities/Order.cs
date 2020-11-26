@@ -26,7 +26,7 @@ namespace Bakery.Core.Entities
 
         public override string ToString()
         {
-            return $"{OrderNr} {Date} {Customer.FullName}";
+            return $"{OrderNr} {Date.ToShortDateString()}";
         }
     }
 }
