@@ -1,20 +1,24 @@
 ﻿using Bakery.Core.Contracts;
+using Bakery.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace Bakery.Persistence
 {
-  public class OrderRepository : IOrderRepository
-  {
-    private readonly ApplicationDbContext _dbContext;
-    public OrderRepository(ApplicationDbContext dbContext)
+    public class OrderRepository : IOrderRepository
     {
-      _dbContext = dbContext;
-    }
+        private readonly ApplicationDbContext _dbContext;
+        public OrderRepository(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
-    public async Task<int> GetCountAsync()
-    {
-      return await _dbContext.Orders.CountAsync();
+        public async Task<Order[]> GetAllAsync()
+        => await _dbContext.Orders.ToArrayAsync();
+
+        public async Task<int> GetCountAsync()
+        {
+            return await _dbContext.Orders.CountAsync();
+        }
     }
-  }
 }

@@ -2,8 +2,9 @@
 
 namespace Bakery.Core.Contracts
 {
-  public interface ICustomerRepository
-  {
-    Task<int> GetCountAsync();
-  }
+    public interface ICustomerRepository
+    {
+        Task<int> GetCountAsync();
+
+    }
 }
