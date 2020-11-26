@@ -5,17 +5,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Bakery.Core.Entities
 {
-  public class Order: EntityObject
+    public class Order : EntityObject
     {
         [Required]
-        [Display(Name ="Bestellnr.")]
+        [Display(Name = "Bestellnr.")]
         public string OrderNr { get; set; }
 
         [Display(Name = "Datum")]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", 
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}",
                ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
- 
+
 
         [Display(Name = "Kunde")]
         public Customer Customer { get; set; }
@@ -23,5 +23,10 @@ namespace Bakery.Core.Entities
         public int CustomerId { get; set; }
 
         public List<OrderItem> OrderItems { get; set; }
+
+        public override string ToString()
+        {
+            return $"{OrderNr} {Date} {Customer.FullName}";
+        }
     }
 }

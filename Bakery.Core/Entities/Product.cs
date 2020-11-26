@@ -21,5 +21,10 @@ namespace Bakery.Core.Entities
         {
             OrderItems = new List<OrderItem>();
         }
+
+        public override string ToString()
+        {
+            return $"{ProductNr} {Name} {Price}";
+        }
     }
 }
